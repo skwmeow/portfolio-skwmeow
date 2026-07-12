@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkwMeow — графический дизайнер · Портфолио для FunPay</title>
+<meta name="description" content="Портфолио SkwMeow: аватарки, баннеры и превью для Telegram, Discord, YouTube и Twitch. Заказы принимаю через FunPay.">
+<meta name="theme-color" content="#100c18">
+<meta property="og:title" content="SkwMeow — графический дизайнер">
+<meta property="og:description" content="Аватарки, баннеры и превью для Telegram, Discord, YouTube и Twitch. Портфолио для FunPay.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23100c18'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='800' font-size='26' fill='%23c9b6ee' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+
+<!-- Критический CSS сайта: обычный blocking-стиль, файл маленький, поэтому не задерживает первую отрисовку -->
+<link rel="stylesheet" href="style.css">
+
+<!-- Google Fonts: подключены асинхронно (preload + swap на onload), поэтому НЕ блокируют рендер.
+     display=swap в самом URL гарантирует, что текст сразу виден шрифтом-заменителем. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800;900&display=swap"></noscript>
+
+<!-- Аварийная защита прелоадера: если страница/скрипт не загрузятся за 5с — прелоадер всё равно скроется.
+     Определена здесь (инлайн, ~0.3 КБ), чтобы работать даже при сбое загрузки script.js. -->
+<script>
+(function(){
+  window.__preloaderHidden = false;
+  window.__hidePreloader = function(){
+    if(window.__preloaderHidden) return;
+    window.__preloaderHidden = true;
+    var pre = document.getElementById('preloader');
+    if(!pre) return;
+    pre.classList.add('hidden');
+    if(document.body) document.body.classList.remove('loading');
+    setTimeout(function(){ if(pre && pre.parentNode) pre.parentNode.removeChild(pre); }, 750);
+  };
+  setTimeout(window.__hidePreloader, 5000);
+})();
+</script>
+
+<!-- Основной скрипт: defer — не блокирует парсинг HTML, выполняется после построения DOM -->
+<script src="script.js" defer></script>
+</head>
+<body class="loading">
+
+<canvas id="bgfx" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="preloader" id="preloader" aria-hidden="true">
+  <svg class="crate-svg" viewBox="0 0 120 120">
+    <defs>
+      <linearGradient id="crateGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#c9b6ee"/>
+        <stop offset="100%" stop-color="#8a68c9"/>
+      </linearGradient>
+    </defs>
+    <ellipse class="crate-glow" cx="60" cy="63" rx="30" ry="10"/>
+    <rect class="crate-base" x="28" y="58" width="64" height="42" rx="6"/>
+    <line class="crate-base-line" x1="28" y1="74" x2="92" y2="74"/>
+    <line class="crate-base-line" x1="60" y1="58" x2="60" y2="100"/>
+    <g class="crate-lid"><rect x="24" y="46" width="72" height="16" rx="6"/></g>
+  </svg>
+  <span class="preloader-label">SkwMeow</span>
+</div>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">SM<span>.</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">Обо мне</a>
+      <a href="#works">Работы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="nav-right">
+      <a href="https://funpay.com/users/7476674/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:10px 20px;font-size:.85rem;">FunPay</a>
+      <button class="nav-burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" id="hero">
+    <div class="hero-blobs" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
+    </div>
+    <div class="hero-content reveal">
+      <span class="eyebrow">Портфолио · графический дизайн</span>
+      <h1 class="hero-title">SkwMeow</h1>
+      <p class="hero-sub">Делаю <strong>аватарки</strong>, <strong>баннеры</strong> и <strong>превью</strong> для Telegram, Discord, YouTube и Twitch — быстро, аккуратно, под ваш стиль.</p>
+      <span class="pill hero-badge"><span class="dot"></span> Заказы принимаю через <strong>FunPay</strong></span>
+      <div class="hero-actions">
+        <a href="#works" class="btn btn-primary">Смотреть работы</a>
+        <a href="https://funpay.com/users/7476674/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Написать на FunPay ↗</a>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span></span>Листайте вниз</div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>TELEGRAM</span><span class="dim">✦</span><span>DISCORD</span><span class="dim">✦</span><span>YOUTUBE</span><span class="dim">✦</span><span>TWITCH</span><span class="dim">✦</span><span>АВАТАРКИ</span><span class="dim">✦</span><span>БАННЕРЫ</span><span class="dim">✦</span><span>ПРЕВЬЮ</span><span class="dim">✦</span><span>FUNPAY</span><span class="dim">✦</span>
+      <span>TELEGRAM</span><span class="dim">✦</span><span>DISCORD</span><span class="dim">✦</span><span>YOUTUBE</span><span class="dim">✦</span><span>TWITCH</span><span class="dim">✦</span><span>АВАТАРКИ</span><span class="dim">✦</span><span>БАННЕРЫ</span><span class="dim">✦</span><span>ПРЕВЬЮ</span><span class="dim">✦</span><span>FUNPAY</span><span class="dim">✦</span>
+    </div>
+  </div>
+
+  <section class="about" id="about">
+    <div class="section-head reveal">
+      <span class="eyebrow">Услуги</span>
+      <h2>Что я делаю</h2>
+      <p>Оформляю каналы, серверы и профили в игровой и медийной тематике — под ключ и по вашим референсам.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="hud-corner tl"></span><span class="hud-corner tr"></span><span class="hud-corner bl"></span><span class="hud-corner br"></span>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="6"/><circle cx="12" cy="10" r="3.2"/><path d="M6.5 18c1-2.8 3-4 5.5-4s4.5 1.2 5.5 4"/></svg></div>
+        <h3>Аватарки</h3>
+        <p>Квадратные иконки профиля для канала, сервера или личной страницы.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="hud-corner tl"></span><span class="hud-corner tr"></span><span class="hud-corner bl"></span><span class="hud-corner br"></span>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="3"/><circle cx="8" cy="11" r="1.6"/><path d="m4 16 4.5-4 3 2.5L16 10l4 4"/></svg></div>
+        <h3>Баннеры</h3>
+        <p>Шапки для YouTube-каналов, Telegram и других площадок.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="hud-corner tl"></span><span class="hud-corner tr"></span><span class="hud-corner bl"></span><span class="hud-corner br"></span>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m10.5 9 4 3-4 3V9Z" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Превью</h3>
+        <p>Обложки для видео и роликов, которые цепляют клик в ленте.</p>
+      </div>
+      <div class="service-card reveal">
+        <span class="hud-corner tl"></span><span class="hud-corner tr"></span><span class="hud-corner bl"></span><span class="hud-corner br"></span>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M12 15v6M4.2 7.8l5.2 3M14.6 13.2l5.2 3M4.2 16.2l5.2-3M14.6 10.8l5.2-3"/></svg></div>
+        <h3>Другое</h3>
+        <p>Любой формат под задачу: от иконок и стикеров до целого оформления.</p>
+      </div>
+    </div>
+    <div class="platforms reveal">
+      <span class="platforms-label">Работаю для</span>
+      <div class="platform-list">
+        <span class="pill platform"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg>Telegram</span>
+        <span class="pill platform"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>Discord</span>
+        <span class="pill platform"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3V9Z" fill="currentColor" stroke="none"/></svg>YouTube</span>
+        <span class="pill platform"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Twitch</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="works" id="works">
+    <div class="section-head reveal">
+      <span class="eyebrow">Портфолио</span>
+      <h2>Мои работы</h2>
+      <p>Нажмите на изображение, чтобы открыть его в полном размере.</p>
+    </div>
+    <div class="works-meta reveal">
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-filter="all">Все работы</button>
+        <button class="filter-btn" data-filter="avatar">Аватарки</button>
+        <button class="filter-btn" data-filter="banner">Баннеры</button>
+        <button class="filter-btn" data-filter="preview">Превью</button>
+        <button class="filter-btn" data-filter="other">Другое</button>
+      </div>
+    </div>
+    <p class="works-count" id="worksCount" style="text-align:center;margin-bottom:28px;"></p>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-card reveal">
+      <span class="eyebrow">Сотрудничество</span>
+      <h2>Понравились работы?</h2>
+      <p>Все заказы, обсуждение задач и переписка — через мой профиль на FunPay. Опишите, что нужно, и я предложу решение и сроки.</p>
+      <a href="https://funpay.com/users/7476674/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Открыть профиль на FunPay ↗</a>
+      <span class="contact-link-plain">funpay.com/users/7476674</span>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="#top" class="nav-logo">SM<span>.</span></a>
+    <p>© SkwMeow — портфолио графического дизайнера. Все работы авторские.</p>
+    <a href="https://funpay.com/users/7476674/" target="_blank" rel="noopener noreferrer">FunPay ↗</a>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр работы">
+  <span class="lightbox-counter" id="lightboxCounter"></span>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Предыдущая работа">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Следующая работа">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+  <div class="lightbox-stage">
+    <img src="" alt="" id="lightboxImg" draggable="false">
+    <svg class="watermark-svg" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <pattern id="wmPattern" patternUnits="userSpaceOnUse" width="260" height="140" patternTransform="rotate(-24)">
+          <text x="0" y="70" class="wm-text">SKWMEOW · FUNPAY</text>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#wmPattern)"></rect>
+    </svg>
+  </div>
+  <p class="lightbox-caption" id="lightboxCaption"></p>
+</div>
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>
