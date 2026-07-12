@@ -28,7 +28,21 @@
     { src:'images/work-16.webp', w:1280, h:720, title:'Копии серверов', cats:['preview'] },
     { src:'images/work-17.webp', w:1500, h:841, title:'Бесплатный кейс', cats:['other'] },
     { src:'images/work-18.webp', w:1500, h:838, title:'Fretta VPN — личный кабинет', cats:['other'] },
-    { src:'images/work-19.webp', w:1179, h:918, title:'Анимированные эмодзи', cats:['other'] }
+    { src:'images/work-19.webp', w:1179, h:918, title:'Анимированные эмодзи', cats:['other'] },
+    { src:'images/work-21.webp', w:1600, h:900, title:'Почему Так', cats:['preview'] },
+    { src:'images/work-22.webp', w:1600, h:1600, title:'AMFE', cats:['avatar'] },
+    { src:'images/work-23.webp', w:1600, h:900, title:'Сколько', cats:['preview'] },
+    { src:'images/work-24.webp', w:1600, h:900, title:'Яблоко', cats:['banner'] },
+    { src:'images/work-25.webp', w:1280, h:720, title:'Saylay', cats:['preview'] },
+    { src:'images/work-26.webp', w:1600, h:900, title:'Hidden', cats:['banner'] },
+    { src:'images/work-27.webp', w:1179, h:918, title:'NC Fanat', cats:['other'] },
+    { src:'images/work-28.webp', w:1600, h:1600, title:'Demeally', cats:['avatar'] },
+    { src:'images/work-29.webp', w:1280, h:720, title:'Zoom', cats:['preview'] },
+    { src:'images/work-30.webp', w:800, h:800, title:'Unix', cats:['avatar'] },
+    { src:'images/work-31.webp', w:1600, h:1600, title:'MKO', cats:['avatar'] },
+    { src:'images/work-32.webp', w:1179, h:918, title:'Аренда', cats:['other'] },
+    { src:'images/work-33.webp', w:1179, h:918, title:'Аренда', cats:['other'] },
+    { src:'images/work-34.webp', w:1600, h:890, title:'Выкуп', cats:['other'] }
   ];
   var catLabels = { avatar:'Аватарка', banner:'Баннер', preview:'Превью', other:'Другое' };
 
